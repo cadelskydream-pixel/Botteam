@@ -12,19 +12,20 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
        font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;}
-  .wrap{max-width:960px;margin:0 auto;padding:48px 20px 64px}
+  .wrap{max-width:1040px;margin:0 auto;padding:48px 20px 64px}
   header h1{margin:0 0 6px;font-size:26px;letter-spacing:.5px}
   header .sub{margin:0;color:var(--muted);font-size:13px}
   .stats{display:flex;gap:14px;margin:28px 0 22px;flex-wrap:wrap}
-  .stat{flex:1 1 180px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .stat{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
   .stat .n{font-size:28px;font-weight:600;line-height:1.2}
   .stat .l{color:var(--muted);font-size:13px;margin-top:2px}
-  .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  table{width:100%;border-collapse:collapse;font-size:14px}
+  .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:820px}
   th,td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
-  th{font-weight:600;color:var(--muted);font-size:12.5px;letter-spacing:.4px;text-transform:uppercase}
+  th{font-weight:600;color:var(--muted);font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
   tr:last-child td{border-bottom:none}
   td.name{font-weight:600;white-space:nowrap}
+  td.auth{font-size:13px;color:#c9d2e0;white-space:nowrap}
   .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;white-space:nowrap}
   .pill.ok{background:rgba(53,192,127,.14);color:var(--ok)}
   .pill.mid{background:rgba(224,163,58,.14);color:var(--mid)}
@@ -34,26 +35,27 @@
   .note h2{margin:0 0 8px;font-size:15px}
   .note p,.note ul{margin:0;color:var(--muted);font-size:13.5px}
   .note ul{padding-left:18px}
-  footer{margin-top:26px;color:var(--muted);font-size:12.5px;text-align:center}
+  footer{margin-top:26px;color:var(--muted);font-size:12.5px;text-align:center;line-height:1.8}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>团队 Bot 花名册</h1>
-    <p class="sub">更新时间：2026-11-22 22:30（Asia/Shanghai）· 每周一 09:00 自动更新</p>
+    <p class="sub">更新时间：2026-11-22 22:42（Asia/Shanghai）· 每周一 09:00 自动更新</p>
   </header>
 
   <section class="stats">
-    <div class="stat"><div class="n">3</div><div class="l">Bot 总数</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">Bot 总数</div></div>
     <div class="stat"><div class="n">1</div><div class="l">定时型</div></div>
     <div class="stat"><div class="n">2</div><div class="l">技能型</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">运行方式待确认</div></div>
   </section>
 
   <div class="tablewrap">
     <table>
       <thead>
-        <tr><th>名字</th><th>定位</th><th>运行方式</th><th>上次干活</th><th>状态</th></tr>
+        <tr><th>名字</th><th>定位</th><th>运行方式</th><th>上次干活</th><th>授权</th><th>状态</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -61,6 +63,7 @@
           <td>总管 Bot，负责调度团队各 Bot、按需创建新 Bot、把结论汇总给用户</td>
           <td>技能型（叫才动，无定时任务）</td>
           <td>2026-11-22</td>
+          <td class="auth">未查到</td>
           <td><span class="pill ok">活跃</span></td>
         </tr>
         <tr>
@@ -68,6 +71,7 @@
           <td>设计与创建新 Bot</td>
           <td>技能型</td>
           <td>2026-11-22</td>
+          <td class="auth">未查到</td>
           <td><span class="pill ok">活跃</span></td>
         </tr>
         <tr>
@@ -75,7 +79,24 @@
           <td>团队 Bot 花名册管家，每周盘点并维护同一页 GitHub Pages 花名册</td>
           <td>定时型（每周一 09:00）</td>
           <td>2026-11-22（首次运行）</td>
+          <td class="auth">GITHUB_TOKEN</td>
           <td><span class="pill ok">活跃</span></td>
+        </tr>
+        <tr>
+          <td class="name">记忆管家</td>
+          <td>备份整个 Bot 团队的设定和记忆</td>
+          <td>未查到</td>
+          <td>未查到</td>
+          <td class="auth">未查到</td>
+          <td><span class="pill none">未查到</span></td>
+        </tr>
+        <tr>
+          <td class="name">安全审计</td>
+          <td>每月盘点外部授权和本机密钥存放位置，只出清单和提醒，不动手撤销</td>
+          <td>未查到</td>
+          <td>未查到</td>
+          <td class="auth">未查到</td>
+          <td><span class="pill none">未查到</span></td>
         </tr>
       </tbody>
     </table>
@@ -83,10 +104,13 @@
 
   <section class="note">
     <h2>闲置名单</h2>
-    <p>暂无。超过 14 天没干过活的 Bot 会列在这里。</p>
+    <p>暂无。超过 14 天没干过活的 Bot 会列在这里；「上次干活」未查到的暂不计入。</p>
   </section>
 
-  <footer>由「花名册」Bot 维护 · 数据来自各 Bot 自报，未回复的记为「未回复」</footer>
+  <footer>
+    由「花名册」Bot 维护 · 数据来自各 Bot 自报，未回复的记为「未查到」，不做推测<br>
+    「授权」列只写授权或密钥的名称，不含任何 Key、Token、密码的值，也不含存放路径
+  </footer>
 </div>
 </body>
 </html>

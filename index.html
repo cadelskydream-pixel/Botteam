@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>团队 Bot 花名册</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#171a21; --line:#262b36; --ink:#e8ecf3; --muted:#9aa4b2;
+    --ok:#35c07f; --mid:#e0a33a; --idle:#e0605a; --none:#7b8494;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:48px 20px 64px}
+  header h1{margin:0 0 6px;font-size:26px;letter-spacing:.5px}
+  header .sub{margin:0;color:var(--muted);font-size:13px}
+  .stats{display:flex;gap:14px;margin:28px 0 22px;flex-wrap:wrap}
+  .stat{flex:1 1 180px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .stat .n{font-size:28px;font-weight:600;line-height:1.2}
+  .stat .l{color:var(--muted);font-size:13px;margin-top:2px}
+  .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{font-weight:600;color:var(--muted);font-size:12.5px;letter-spacing:.4px;text-transform:uppercase}
+  tr:last-child td{border-bottom:none}
+  td.name{font-weight:600;white-space:nowrap}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;white-space:nowrap}
+  .pill.ok{background:rgba(53,192,127,.14);color:var(--ok)}
+  .pill.mid{background:rgba(224,163,58,.14);color:var(--mid)}
+  .pill.idle{background:rgba(224,96,90,.14);color:var(--idle)}
+  .pill.none{background:rgba(123,132,148,.16);color:var(--none)}
+  .note{margin:26px 0 0;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .note h2{margin:0 0 8px;font-size:15px}
+  .note p,.note ul{margin:0;color:var(--muted);font-size:13.5px}
+  .note ul{padding-left:18px}
+  footer{margin-top:26px;color:var(--muted);font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>团队 Bot 花名册</h1>
+    <p class="sub">更新时间：2026-11-22 22:30（Asia/Shanghai）· 每周一 09:00 自动更新</p>
+  </header>
+
+  <section class="stats">
+    <div class="stat"><div class="n">3</div><div class="l">Bot 总数</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">定时型</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">技能型</div></div>
+  </section>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>名字</th><th>定位</th><th>运行方式</th><th>上次干活</th><th>状态</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">Chief</td>
+          <td>总管 Bot，负责调度团队各 Bot、按需创建新 Bot、把结论汇总给用户</td>
+          <td>技能型（叫才动，无定时任务）</td>
+          <td>2026-11-22</td>
+          <td><span class="pill ok">活跃</span></td>
+        </tr>
+        <tr>
+          <td class="name">招聘官</td>
+          <td>设计与创建新 Bot</td>
+          <td>技能型</td>
+          <td>2026-11-22</td>
+          <td><span class="pill ok">活跃</span></td>
+        </tr>
+        <tr>
+          <td class="name">花名册</td>
+          <td>团队 Bot 花名册管家，每周盘点并维护同一页 GitHub Pages 花名册</td>
+          <td>定时型（每周一 09:00）</td>
+          <td>2026-11-22（首次运行）</td>
+          <td><span class="pill ok">活跃</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="note">
+    <h2>闲置名单</h2>
+    <p>暂无。超过 14 天没干过活的 Bot 会列在这里。</p>
+  </section>
+
+  <footer>由「花名册」Bot 维护 · 数据来自各 Bot 自报，未回复的记为「未回复」</footer>
+</div>
+</body>
+</html>
